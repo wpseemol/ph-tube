@@ -20,22 +20,23 @@ function havePost(postStatus, allPost) {
   } else {
     for (const className of classList) {
       if (className === "lg:grid-cols-4") {
-        classList.remove("lg:grid-cols-4");
+        classList.remove("lg:grid-cols-4","sm:grid-cols-2");
         classList.add("lg:grid-cols-1");
         postSecton.children[0].innerHTML = `
-<div class="flex flex-col items-center justify-center gap-8 mt-14">
-          <img src="./images/Icon.png" alt="Empty Icon">
-          <h2 class="text-noDataFont font-bold text-titleFontColor text-center">
-            Oops!! Sorry, There is no
-            <br> content here
-          </h2>
+        <div class="flex flex-col items-center justify-center gap-8 mt-14">
+        <img src="./images/Icon.png" alt="Empty Icon">
+        <h2 class="text-noDataFont font-bold text-titleFontColor text-center">
+        Oops!! Sorry, There is no
+        <br> content here
+        </h2>
         </div>`;
+        console.log(classList);
       }
     }
   }
 }
 
-const showAllPost = (postes) => {
+function showAllPost(postes) {
   postSecton.children[0].innerHTML = "";
   postes.data.forEach((postData) => {
     const createdDiv = document.createElement("div");
@@ -98,9 +99,11 @@ const showAllPost = (postes) => {
             </div>
           </div>`;
     postSecton.children[0].appendChild(createdDiv);
+    // short by vewe function
   });
-};
+}
 
+//by category show post
 function getClickItems(categoryId) {
   const catIdData = async () => {
     const respons = await fetch(
@@ -112,3 +115,31 @@ function getClickItems(categoryId) {
 
   catIdData();
 }
+// sort by post
+
+const shortByViewBtn = document.getElementById("sortByViewBtn");
+function sortByview(allPosts) {
+  const data = [];
+  allPosts.data.forEach((element) => {
+    data.push(element.others);
+  });
+  // Custom comparison function to extract numeric values from 'views'
+  const getNumericValue = (views) => {
+    const multiplier = views.endsWith("K") ? 1000 : 1;
+    const numericPart = parseFloat(views) * multiplier;
+    return isNaN(numericPart) ? 0 : numericPart;
+  };
+
+  data.sort((a, b) => {
+    const viewsA = getNumericValue(a.views);
+    const viewsB = getNumericValue(b.views);
+
+    return viewsB - viewsA;
+  });
+
+  console.log(data);
+}
+
+shortByViewBtn.addEventListener("click", function () {
+  console.log("click short btn");
+});
