@@ -6,16 +6,37 @@ const getAllData = async () => {
   havePost(data.status, data);
 };
 
+const postSecton = document.getElementById("postContainer");
 function havePost(postStatus, allPost) {
+  const classList = postSecton.children[0].classList;
   if (postStatus) {
     showAllPost(allPost);
+    for (const className of classList) {
+      if (className === "lg:grid-cols-1") {
+        classList.remove("lg:grid-cols-1");
+        classList.add("lg:grid-cols-4");
+      }
+    }
   } else {
-    alert("No Poste Found This Page");
+    for (const className of classList) {
+      if (className === "lg:grid-cols-4") {
+        classList.remove("lg:grid-cols-4");
+        classList.add("lg:grid-cols-1");
+        postSecton.children[0].innerHTML = `
+<div class="flex flex-col items-center justify-center gap-8 mt-14">
+          <img src="./images/Icon.png" alt="Empty Icon">
+          <h2 class="text-noDataFont font-bold text-titleFontColor text-center">
+            Oops!! Sorry, There is no
+            <br> content here
+          </h2>
+        </div>`;
+      }
+    }
   }
 }
 
-const postSecton = document.getElementById("postContainer");
 const showAllPost = (postes) => {
+  postSecton.children[0].innerHTML = "";
   postes.data.forEach((postData) => {
     const createdDiv = document.createElement("div");
     createdDiv.classList.add("card");
@@ -36,7 +57,6 @@ const showAllPost = (postes) => {
     let postVewas = postData?.others?.views
       ? postData.others.views
       : "No Views";
-
     createdDiv.innerHTML = `<figure class="rounded-lg h-56 relative border border-borderColor">
             <img
               class="object-cover"
@@ -73,34 +93,22 @@ const showAllPost = (postes) => {
                     ${isverified}
                   </span>
                 </div>
-                <p class="text-sm font-normal">${postVewas}</p>
+                <p class="text-sm font-normal">${postVewas} views</p>
               </div>
             </div>
           </div>`;
     postSecton.children[0].appendChild(createdDiv);
-
-    console.log(postData.others.views);
   });
 };
 
-// nofound content function here
-//  noFountContent();
+function getClickItems(categoryId) {
+  const catIdData = async () => {
+    const respons = await fetch(
+      `https://openapi.programming-hero.com/api/videos/category/${categoryId}`
+    );
+    const data = await respons.json();
+    havePost(data.status, data);
+  };
 
-function noFountContent() {
-  const classList = postSecton.children[0].classList;
-  for (const className of classList) {
-    if (className === "lg:grid-cols-4") {
-      classList.remove("lg:grid-cols-4");
-      classList.add("lg:grid-cols-1");
-      postSecton.children[0].innerHTML = `
-<div class="flex flex-col items-center justify-center gap-8 mt-14">
-          <img src="./images/Icon.png" alt="Empty Icon">
-          <h2 class="text-noDataFont font-bold text-titleFontColor text-center">
-            Oops!! Sorry, There is no
-            <br> content here
-          </h2>
-        </div>
-`;
-    }
-  }
+  catIdData();
 }
