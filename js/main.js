@@ -3,12 +3,14 @@ const getAllData = async () => {
     "https://openapi.programming-hero.com/api/videos/category/1000"
   );
   const data = await respons.json();
+  let postStatus = data.status ? true : false;
   havePost(data.status, data);
 };
 
 const postSecton = document.getElementById("postContainer");
 function havePost(postStatus, allPost) {
   const classList = postSecton.children[0].classList;
+  sortByview(allPost, postStatus);
   if (postStatus) {
     showAllPost(allPost);
     for (const className of classList) {
@@ -20,7 +22,7 @@ function havePost(postStatus, allPost) {
   } else {
     for (const className of classList) {
       if (className === "lg:grid-cols-4") {
-        classList.remove("lg:grid-cols-4","sm:grid-cols-2");
+        classList.remove("lg:grid-cols-4", "sm:grid-cols-2");
         classList.add("lg:grid-cols-1");
         postSecton.children[0].innerHTML = `
         <div class="flex flex-col items-center justify-center gap-8 mt-14">
@@ -30,7 +32,6 @@ function havePost(postStatus, allPost) {
         <br> content here
         </h2>
         </div>`;
-        console.log(classList);
       }
     }
   }
@@ -118,28 +119,25 @@ function getClickItems(categoryId) {
 // sort by post
 
 const shortByViewBtn = document.getElementById("sortByViewBtn");
-function sortByview(allPosts) {
-  const data = [];
-  allPosts.data.forEach((element) => {
-    data.push(element.others);
-  });
-  // Custom comparison function to extract numeric values from 'views'
-  const getNumericValue = (views) => {
-    const multiplier = views.endsWith("K") ? 1000 : 1;
-    const numericPart = parseFloat(views) * multiplier;
-    return isNaN(numericPart) ? 0 : numericPart;
-  };
-
-  data.sort((a, b) => {
-    const viewsA = getNumericValue(a.views);
-    const viewsB = getNumericValue(b.views);
-
-    return viewsB - viewsA;
-  });
-
-  console.log(data);
+function sortByview(allPosts, postStatus) {
+  if (postStatus) {
+    shortByViewBtn.removeAttribute("disabled");
+    shortByViewBtn.addEventListener("click", function () {
+      const sortPostArray = allPosts.data;
+      function sortData(fistNumber, secendNumber) {
+        const fistViews = parseInt(fistNumber.others.views);
+        const secendViews = parseInt(secendNumber.others.views);
+        return secendViews - fistViews;
+      }
+      sortPostArray.sort(sortData);
+      const sortObj = {
+        status: true,
+        message: "successfully sort data",
+        data: sortPostArray,
+      };
+      showAllPost(sortObj);
+    });
+  } else {
+    shortByViewBtn.setAttribute("disabled", "");
+  }
 }
-
-shortByViewBtn.addEventListener("click", function () {
-  console.log("click short btn");
-});
