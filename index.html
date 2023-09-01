@@ -19,11 +19,10 @@
   </head>
   <body class="font-fontInter">
     <!-- some defult class lg:px-14 px-5 mt-12 -->
-    <header class=" lg:mx-14 mx-5 mt-12">
-
+    <header class="lg:mx-14 mx-5 mt-12">
       <div class="justify-center items-start my-6 sm:hidden flex">
-          <img src="./images/Logo.png" alt="PH Tube Logo" />
-        </div> 
+        <img src="./images/Logo.png" alt="PH Tube Logo" />
+      </div>
 
       <div class="navbar sm:justify-center justify-around bg-base-100">
         <!-- PH tube Icon -->
@@ -48,7 +47,10 @@
       </div>
       <!-- navecation menu -->
       <nav class="mt-8 border-t border-borderColor">
-        <ul class="flex justify-center items-center sm:flex-row flex-col gap-6 pt-10">
+        <ul
+        id="naveContainer"
+          class="justify-center items-center sm:flex-row flex-col gap-6 pt-10 hidden"
+        >
           <!-- .btnActive {
                     bg-primaryBtnBg text-whaitColor
                     font-semibold hover:bg-primaryBtnBg;
@@ -63,40 +65,36 @@
               
               -->
           <!-- active for btnActive and defult for normalBtn -->
-          <li class="btn btnCustom btnActive">
+          <!-- <li class="btn btnCustom btnActive">
             <a href="#">Test</a>
-          </li>
-          <li class="btn btnCustom normalBtn">
-            <a href="#">Test</a>
-          </li>
-          <li class="btn btnCustom normalBtn">
-            <a href="#">Test</a>
-          </li>
-          <li class="btn btnCustom normalBtn">
-            <a href="#">Test</a>
-          </li>
-
+          </li> -->
         </ul>
       </nav>
     </header>
-    <main class="lg:mx-14 mx-5 mt-12">
+    <main id="postContainer" class="lg:mx-14 mx-5 mt-12">
       <!-- tube video section -->
-      <section class="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-6 pt-10">
+      <section
+        class="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-6 pt-10">
+
         <!-- item-->
-        <div class=" card bg-base-100 shadow-xl">
-          <figure class="rounded-lg">
+        <!-- <div class="card">
+          <figure class="rounded-lg h-56 relative border border-borderColor">
             <img
-              src="https://images.unsplash.com/photo-1642726197634-2a21f764220a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHlvdXR1YmUlMjBpY29ufGVufDB8fDB8fHww&w=1000&q=80"
+              class="object-cover"
+              src="https://i.ibb.co/kc8CCFs/30-rock.png"
               alt="Shoes"
             />
+            <div class="absolute bg-titleFontColor text-whaitColor
+            bottom-4 right-4 py-1 px-[5px] text-timerFont font-normal rounded-sm">
+              <p><time>3hrs</time> <time>56 min</time> ago</p>
+            </div>
           </figure>
           <div class="my-5">
-
             <div class="flex gap-3">
               <div class="avatar">
                 <div class="w-10 h-10 rounded-full">
                   <img
-                    src="https://png.pngtree.com/png-vector/20191101/ourmid/pngtree-businessman-avatar-icon-flat-style-png-image_1917273.jpg"
+                    src="https://i.ibb.co/k4tkc42/oliviar-harris.jpg"
                   />
                 </div>
               </div>
@@ -107,248 +105,32 @@
                 <div class="my-2 flex items-center gap-2">
                   <p class="text-sm font-normal">Awlad Hossain</p>
                   <span>
-                         <img src="./images/verified-bage.svg" alt="">
+                    <img src="./images/verified-bage.svg" alt="" />
                   </span>
                 </div>
                 <p class="text-sm font-normal">91K views</p>
               </div>
             </div>
-            
           </div>
-        </div>
-
-       
+        </div> -->
 
 
-
-
-
-
-
-
-        <!-- item-->
-        <div class=" card bg-base-100 shadow-xl">
-          <figure class="rounded-lg">
-            <img
-              src="https://images.unsplash.com/photo-1642726197634-2a21f764220a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHlvdXR1YmUlMjBpY29ufGVufDB8fDB8fHww&w=1000&q=80"
-              alt="Shoes"
-            />
-          </figure>
-          <div class="my-5">
-
-            <div class="flex gap-3">
-              <div class="avatar">
-                <div class="w-10 h-10 rounded-full">
-                  <img
-                    src="https://png.pngtree.com/png-vector/20191101/ourmid/pngtree-businessman-avatar-icon-flat-style-png-image_1917273.jpg"
-                  />
-                </div>
-              </div>
-              <div>
-                <h2 class="text-base font-bold text-titleFontColor">
-                  Building a Winning UX Strategy Using the Kano Model
-                </h2>
-                <div class="my-2 flex items-center gap-2">
-                  <p class="text-sm font-normal">Awlad Hossain</p>
-                  <span>
-                         <img src="./images/verified-bage.svg" alt="">
-                  </span>
-                </div>
-                <p class="text-sm font-normal">91K views</p>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-
-        <!-- item-->
-        <div class=" card bg-base-100 shadow-xl">
-          <figure class="rounded-lg">
-            <img
-              src="https://images.unsplash.com/photo-1642726197634-2a21f764220a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHlvdXR1YmUlMjBpY29ufGVufDB8fDB8fHww&w=1000&q=80"
-              alt="Shoes"
-            />
-          </figure>
-          <div class="my-5">
-
-            <div class="flex gap-3">
-              <div class="avatar">
-                <div class="w-10 h-10 rounded-full">
-                  <img
-                    src="https://png.pngtree.com/png-vector/20191101/ourmid/pngtree-businessman-avatar-icon-flat-style-png-image_1917273.jpg"
-                  />
-                </div>
-              </div>
-              <div>
-                <h2 class="text-base font-bold text-titleFontColor">
-                  Building a Winning UX Strategy Using the Kano Model
-                </h2>
-                <div class="my-2 flex items-center gap-2">
-                  <p class="text-sm font-normal">Awlad Hossain</p>
-                  <span>
-                         <img src="./images/verified-bage.svg" alt="">
-                  </span>
-                </div>
-                <p class="text-sm font-normal">91K views</p>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-
-        <!-- item-->
-        <div class=" card bg-base-100 shadow-xl">
-          <figure class="rounded-lg">
-            <img
-              src="https://images.unsplash.com/photo-1642726197634-2a21f764220a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHlvdXR1YmUlMjBpY29ufGVufDB8fDB8fHww&w=1000&q=80"
-              alt="Shoes"
-            />
-          </figure>
-          <div class="my-5">
-
-            <div class="flex gap-3">
-              <div class="avatar">
-                <div class="w-10 h-10 rounded-full">
-                  <img
-                    src="https://png.pngtree.com/png-vector/20191101/ourmid/pngtree-businessman-avatar-icon-flat-style-png-image_1917273.jpg"
-                  />
-                </div>
-              </div>
-              <div>
-                <h2 class="text-base font-bold text-titleFontColor">
-                  Building a Winning UX Strategy Using the Kano Model
-                </h2>
-                <div class="my-2 flex items-center gap-2">
-                  <p class="text-sm font-normal">Awlad Hossain</p>
-                  <span>
-                         <img src="./images/verified-bage.svg" alt="">
-                  </span>
-                </div>
-                <p class="text-sm font-normal">91K views</p>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-
-        <!-- item-->
-        <div class=" card bg-base-100 shadow-xl">
-          <figure class="rounded-lg">
-            <img
-              src="https://images.unsplash.com/photo-1642726197634-2a21f764220a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHlvdXR1YmUlMjBpY29ufGVufDB8fDB8fHww&w=1000&q=80"
-              alt="Shoes"
-            />
-          </figure>
-          <div class="my-5">
-
-            <div class="flex gap-3">
-              <div class="avatar">
-                <div class="w-10 h-10 rounded-full">
-                  <img
-                    src="https://png.pngtree.com/png-vector/20191101/ourmid/pngtree-businessman-avatar-icon-flat-style-png-image_1917273.jpg"
-                  />
-                </div>
-              </div>
-              <div>
-                <h2 class="text-base font-bold text-titleFontColor">
-                  Building a Winning UX Strategy Using the Kano Model
-                </h2>
-                <div class="my-2 flex items-center gap-2">
-                  <p class="text-sm font-normal">Awlad Hossain</p>
-                  <span>
-                         <img src="./images/verified-bage.svg" alt="">
-                  </span>
-                </div>
-                <p class="text-sm font-normal">91K views</p>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-
-        <!-- item-->
-        <div class=" card bg-base-100 shadow-xl">
-          <figure class="rounded-lg">
-            <img
-              src="https://images.unsplash.com/photo-1642726197634-2a21f764220a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHlvdXR1YmUlMjBpY29ufGVufDB8fDB8fHww&w=1000&q=80"
-              alt="Shoes"
-            />
-          </figure>
-          <div class="my-5">
-
-            <div class="flex gap-3">
-              <div class="avatar">
-                <div class="w-10 h-10 rounded-full">
-                  <img
-                    src="https://png.pngtree.com/png-vector/20191101/ourmid/pngtree-businessman-avatar-icon-flat-style-png-image_1917273.jpg"
-                  />
-                </div>
-              </div>
-              <div>
-                <h2 class="text-base font-bold text-titleFontColor">
-                  Building a Winning UX Strategy Using the Kano Model
-                </h2>
-                <div class="my-2 flex items-center gap-2">
-                  <p class="text-sm font-normal">Awlad Hossain</p>
-                  <span>
-                         <img src="./images/verified-bage.svg" alt="">
-                  </span>
-                </div>
-                <p class="text-sm font-normal">91K views</p>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-
-        <!-- item-->
-        <div class=" card bg-base-100 shadow-xl">
-          <figure class="rounded-lg">
-            <img
-              src="https://images.unsplash.com/photo-1642726197634-2a21f764220a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHlvdXR1YmUlMjBpY29ufGVufDB8fDB8fHww&w=1000&q=80"
-              alt="Shoes"
-            />
-          </figure>
-          <div class="my-5">
-
-            <div class="flex gap-3">
-              <div class="avatar">
-                <div class="w-10 h-10 rounded-full">
-                  <img
-                    src="https://png.pngtree.com/png-vector/20191101/ourmid/pngtree-businessman-avatar-icon-flat-style-png-image_1917273.jpg"
-                  />
-                </div>
-              </div>
-              <div>
-                <h2 class="text-base font-bold text-titleFontColor">
-                  Building a Winning UX Strategy Using the Kano Model
-                </h2>
-                <div class="my-2 flex items-center gap-2">
-                  <p class="text-sm font-normal">Awlad Hossain</p>
-                  <span>
-                         <img src="./images/verified-bage.svg" alt="">
-                  </span>
-                </div>
-                <p class="text-sm font-normal">91K views</p>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-
-
-
-
-
-
-
-
-
-       
-
+          <!-- grid colom 1 -->
+        <!-- <div class="flex flex-col items-center justify-center gap-8 mt-14">
+          <img src="./images/Icon.png" alt="Empty Icon">
+          <h2 class="text-noDataFont font-bold text-titleFontColor text-center">
+            Oops!! Sorry, There is no
+            <br> content here
+          </h2>
+        </div> -->
+        
 
       </section>
     </main>
     <footer></footer>
+
+    <script src="./js/categories.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/catagori-items.js"></script>
   </body>
 </html>
