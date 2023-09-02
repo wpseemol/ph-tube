@@ -18,14 +18,12 @@ function showCategori(dataObj) {
 
   dataObj.data.forEach((element) => {
     const li = document.createElement("li");
-
     li.setAttribute("onclick", `clickedBtn(this,${element.category_id})`);
     li.classList.add("btn", "btnCustom", "normalBtn");
     li.innerHTML = `
         <a href="#">${element.category}</a>`;
     naveContainer.appendChild(li);
   });
-
   const navFirstChild = naveContainer.children[0];
   navFirstChild.classList.remove("normalBtn");
   navFirstChild.classList.add("btnActive");

@@ -8,6 +8,7 @@ const getAllData = async () => {
 };
 
 const postSecton = document.getElementById("postContainer");
+
 function havePost(postStatus, allPost) {
   const classList = postSecton.children[0].classList;
   sortByview(allPost, postStatus);
@@ -71,8 +72,7 @@ function showAllPost(postes) {
       <p>
          <time>${hourValue}</time> 
          <time>${minuteValue}</time> ago
-       </p>
-              
+       </p>             
             </div>
           </figure> 
           <div class="my-5">
@@ -103,7 +103,6 @@ function showAllPost(postes) {
     // short by vewe function
   });
 }
-
 //by category show post
 function getClickItems(categoryId) {
   const catIdData = async () => {
@@ -113,17 +112,17 @@ function getClickItems(categoryId) {
     const data = await respons.json();
     havePost(data.status, data);
   };
-
   catIdData();
 }
 // sort by post
-
 const shortByViewBtn = document.getElementById("sortByViewBtn");
+
 function sortByview(allPosts, postStatus) {
   if (postStatus) {
     shortByViewBtn.removeAttribute("disabled");
     shortByViewBtn.addEventListener("click", function () {
       const sortPostArray = allPosts.data;
+
       function sortData(fistNumber, secendNumber) {
         const fistViews = parseInt(fistNumber.others.views);
         const secendViews = parseInt(secendNumber.others.views);
